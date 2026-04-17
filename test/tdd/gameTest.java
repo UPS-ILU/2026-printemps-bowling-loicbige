@@ -19,4 +19,16 @@ class gameTest {
 	void scoreWithoutRollTest() {
 		assertEquals(0, game.score());
 	}
+	
+	@Test
+	void roll20times0Test() {
+		skipRoll(20, 0);
+		assertEquals(0, game.score());
+	}
+	
+	private void skipRoll(int times, int nomberRolled) {
+		for (int i = 0; i < times; i++) {
+			game.roll(nomberRolled);
+		}
+	}
 }

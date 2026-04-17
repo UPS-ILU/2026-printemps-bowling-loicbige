@@ -15,3 +15,6 @@
 
 
 ITER-1 : entrée vide -> resultat = 0;
+ITER-2 : Roll 20 fois 0 : score = 0
+ITER-3 : Roll 20 fois 1 : score = 20
+ITER-4 : Roll 10 fois 1 et 10 fois 2 : score = 30

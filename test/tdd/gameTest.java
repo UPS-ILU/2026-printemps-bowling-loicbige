@@ -33,6 +33,13 @@ class gameTest {
 		assertEquals(20, game.score());
 	}
 	
+	@Test
+	void roll10Times1n10Times2Test() {
+		skipRoll(10, 1);
+		skipRoll(10, 2);
+		assertEquals(30, game.score());
+	}
+	
 	private void skipRoll(int times, int nomberRolled) {
 		for (int i = 0; i < times; i++) {
 			game.roll(nomberRolled);

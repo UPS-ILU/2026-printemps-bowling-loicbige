@@ -21,6 +21,7 @@ public class Game {
 		else {
 			score[tour-1]+= numberRolled;
 			score[tour] = numberRolled;
+			spare = false;
 		}
 		if (tour%2 == 1 && score[tour-1]+score[tour] == 10) {
 			spare = true;

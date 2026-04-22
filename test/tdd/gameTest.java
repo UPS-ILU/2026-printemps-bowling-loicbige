@@ -49,6 +49,16 @@ class gameTest {
 		assertEquals(18, game.score());
 	}
 	
+	@Test
+	void Striketest() {
+		game.roll(10);
+		game.roll(3);
+		game.roll(4);
+		skipRoll(16, 0);
+		assertEquals(24, game.score());
+	}
+	
+	
 	private void skipRoll(int times, int nomberRolled) {
 		for (int i = 0; i < times; i++) {
 			game.roll(nomberRolled);

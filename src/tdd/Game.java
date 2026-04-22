@@ -4,10 +4,7 @@ public class Game {
 	
 	private int[] score;
 	private int tour;
-	private boolean spare = false;
-	private boolean strike = false;
-
-	private static int NB_TOUR_MAX = 20;
+	private static int NB_TOUR_MAX = 21;
 	
 	public Game() {
 		this.score = new int[NB_TOUR_MAX];
@@ -15,25 +12,37 @@ public class Game {
 	}
 
 	public void roll(int numberRolled) {
-		if (!spare) {
-			score[tour] = numberRolled;
-		}
-		else {
-			score[tour-1]+= numberRolled;
-			score[tour] = numberRolled;
-			spare = false;
-		}
-		if (tour%2 == 1 && score[tour-1]+score[tour] == 10) {
-			spare = true;
+		score[tour] = numberRolled;
+		 
+		if (isSrike(tour)) {
+			this.tour++;
 		}
 		this.tour++;
 	}
+
+	private boolean isSpare(int i) {
+		return i%2 == 1 && score[i-1]+score[i] == 10;
+	}
+	
+	private boolean isSrike(int i) {
+		return i%2==0 && score[i] == 10;
+	}
+	
 	
 	public int score() {
-		int sum = 0;
 		
+		int sum = 0;
 		for (int i = 0; i < score.length; i++) {
-			sum += score[i];
+			if(isSrike(i)) {
+				sum += score[i]+score[i+2]+score[i+3];
+				i++;
+			}
+			else if (isSpare(i)) {
+				sum += score[i] + score[i+1];
+			}
+			else {
+				sum += score[i];
+			}
 		}
 		return sum;
 	}

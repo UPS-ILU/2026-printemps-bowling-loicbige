@@ -40,6 +40,15 @@ class gameTest {
 		assertEquals(30, game.score());
 	}
 	
+	@Test
+	void spareTest() {
+		game.roll(7);
+		game.roll(3);
+		game.roll(4);
+		skipRoll(17, 0);
+		assertEquals(18, game.score());
+	}
+	
 	private void skipRoll(int times, int nomberRolled) {
 		for (int i = 0; i < times; i++) {
 			game.roll(nomberRolled);

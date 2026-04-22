@@ -16,6 +16,7 @@ public class Game {
 		 
 		if (isSrike(tour)) {
 			this.tour++;
+			score[tour] = 0;
 		}
 		this.tour++;
 	}

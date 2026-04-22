@@ -4,7 +4,7 @@ public class Game {
 	
 	private int[] score;
 	private int tour;
-	private static int NB_TOUR_MAX = 21;
+	private static int NB_TOUR_MAX = 22;
 	
 	public Game() {
 		this.score = new int[NB_TOUR_MAX];
@@ -33,7 +33,7 @@ public class Game {
 	public int score() {
 		
 		int sum = 0;
-		for (int i = 0; i < score.length; i++) {
+		for (int i = 0; i < score.length && i < 20; i++) {
 			if(isSrike(i)) {
 				sum += score[i]+score[i+2]+score[i+3];
 				i++;

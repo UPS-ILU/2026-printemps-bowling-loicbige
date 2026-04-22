@@ -119,6 +119,12 @@ class gameTest {
 	}
 	
 	
+	@Test
+	void perfectGame() {
+		skipRoll(12, 10);
+		game.debug();
+		assertEquals(300, game.score());
+	}
 	
 	private void skipRoll(int times, int nomberRolled) {
 		for (int i = 0; i < times; i++) {

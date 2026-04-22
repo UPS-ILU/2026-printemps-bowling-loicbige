@@ -4,12 +4,12 @@ public class Game {
 	
 	private int[] score;
 	private int tour;
-	private static int NB_TOUR_MAX = 22;
+	private static int NB_TOUR_MAX = 24;
 	
 	public Game() {
 		this.score = new int[NB_TOUR_MAX];
 		this.tour = 0;
-	}
+	}		
 
 	public void roll(int numberRolled) {
 		score[tour] = numberRolled;
@@ -35,7 +35,9 @@ public class Game {
 		int sum = 0;
 		for (int i = 0; i < score.length && i < 20; i++) {
 			if(isSrike(i)) {
-				sum += score[i]+score[i+2]+score[i+3];
+				
+				int nextBonus = isSrike(i+2) ? i+4 : i+3;
+				sum += score[i]+score[i+2]+score[nextBonus];
 				i++;
 			}
 			else if (isSpare(i)) {
@@ -47,6 +49,11 @@ public class Game {
 		}
 		return sum;
 	}
+	public void debug() {
+		for (int i : score) {
+			System.out.println(i);
+		}
 	}
+}
 
 

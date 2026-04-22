@@ -27,3 +27,4 @@ ITER-8 : 1, 2, 10, 0, 10,
 6, 4, 8, 2, 2, 8, 8
 
 score : 131
+ITER-9 : Roll 12*Strike score = 300
